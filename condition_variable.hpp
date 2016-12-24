@@ -9,7 +9,6 @@ class ConditionVariable {
             pthread_cond_init(&cond_, NULL);
         }
         ~ConditionVariable() {
-            this->Post();
             pthread_mutex_destroy(&lock_);
             pthread_cond_destroy(&cond_);
         }
