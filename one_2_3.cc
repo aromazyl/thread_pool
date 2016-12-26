@@ -44,9 +44,9 @@ class Print {
       auto P1 = std::thread(&Print::printA, this);
       auto P2 = std::thread(&Print::printB, this);
       auto P3 = std::thread(&Print::printC, this);
-      usleep(100);
+      usleep(10);
       ca_.Post();
-      while (running != 0) { int count = 0; usleep(1000 * 1000 * 10); printf("sleep %d second\n", (++count) * 10); }
+      while (running != 0) { usleep(1000); }
       P1.join();
       P2.join();
       P3.join();
